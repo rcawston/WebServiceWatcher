@@ -102,6 +102,7 @@ namespace WebServiceWatcher
             OutputHandler.WriteOut(OutputHandler.MessageTypes.Notice, "Sleeping for 2 seconds before verifying connectivity...");
 
             // test again to verify connectivity
+            loops = 0;
             while (loops < WebWatchLauncher.Configuration.Retries)
             {
                 System.Threading.Thread.Sleep(2000);
@@ -110,6 +111,7 @@ namespace WebServiceWatcher
                 var result = WebTestTool.TestURL(WebWatchLauncher.Configuration.TestURL, WebWatchLauncher.Configuration.WebTimeout);
                 if (result.ResponseStatus == WebExceptionStatus.Success && result.ResponseCode == HttpStatusCode.OK)
                 {
+                    OutputHandler.WriteOut(OutputHandler.MessageTypes.Message, "Response okay! Length: " + result.ReceivedLength + "; Expected: " + result.ReceivedLength);
                     OutputHandler.WriteOut(OutputHandler.MessageTypes.Error, "Service Restart Was Required!",
                         "URL '" + WebWatchLauncher.Configuration.TestURL + "' failed to respond after " + WebWatchLauncher.Configuration.Retries + " attempts" + "\n" +
                         "Service '" + WebWatchLauncher.Configuration.ServiceName + "' was restarted." + "\n\n\n" +

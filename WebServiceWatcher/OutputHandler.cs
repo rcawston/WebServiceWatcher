@@ -128,7 +128,11 @@ namespace WebServiceWatcher
             if (lastMessage != null)
             {
                 // send email notification
-                Util.Email.SendEmail("[WebServiceWatch] " + lastMessage.Message, lastMessage.Details);
+                WriteOut(MessageTypes.Notice, "Sending email notification");
+                WriteOut(MessageTypes.Message,
+                    Util.Email.SendEmail("[WebServiceWatch] " + lastMessage.Message, lastMessage.Details)
+                        ? "Email notification sent successfully."
+                        : "Email notification could NOT be sent.");
             }
             // clear the message store
             _messageStore.Clear();
