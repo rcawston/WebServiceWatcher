@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WebServiceWatcher>
+  <WebTimeout>10000</WebTimeout>
+  <Retries>3</Retries>
+  <TestURL>http://127.0.0.1</TestURL>
+  <ServiceName>Apache2.4</ServiceName>
+  <RestartTimeout>30000</RestartTimeout>
+  <PollInterval>10000</PollInterval>
+  <ToEmail>email@example.org</ToEmail>
+  <FromEmail>email@example.org</FromEmail>
+  <SMTPServer>127.0.0.1</SMTPServer>
+  <SMTPPort>25</SMTPPort>
+  <EmailThreshhold>1</EmailThreshhold>
+  <LogThreshhold>4</LogThreshhold>
+  <LogFile></LogFile>
+</WebServiceWatcher>
