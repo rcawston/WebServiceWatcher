@@ -18,12 +18,13 @@ namespace WebServiceWatcher
             processInstaller.Account = ServiceAccount.LocalSystem;
 
             serviceInstaller.DisplayName = "WebServiceWatcher";
+            serviceInstaller.Description = "Monitors a web server and restarts a windows service if needed.";
             serviceInstaller.StartType = ServiceStartMode.Automatic;
 
             // must be the same as what was set in the Program's constructor
             serviceInstaller.ServiceName = "WebServiceWatcher";
-            this.Installers.Add(processInstaller);
-            this.Installers.Add(serviceInstaller);
+            Installers.Add(processInstaller);
+            Installers.Add(serviceInstaller);
         }
     }
 }
